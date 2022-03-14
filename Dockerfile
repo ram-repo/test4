@@ -1,4 +1,4 @@
-FROM artifactory.bre.mcd.com/docker/python:3.8
+FROM python:3.11.0a5-slim-bullseye
 
 RUN mkdir /app
 WORKDIR /app
@@ -9,5 +9,7 @@ COPY test_eds.py .
 COPY requirements.txt .
 
 RUN pip3 install -r requirements.txt
+
+Run apt-get update && apt-get upgrade 
 
 CMD ["python", "-u", "/app/eds.py"]
